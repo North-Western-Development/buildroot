@@ -57,5 +57,5 @@ Thumbs.db
 .LSOverride
 ._*
 
-# Generated resources
-/src/main/resources/generated/*
+# Generated resources and licenses
+/src/main/resources/*
