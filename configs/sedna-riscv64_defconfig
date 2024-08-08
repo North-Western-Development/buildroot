@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g02724baebe-dirty Configuration
+# Buildroot -gc6f7959e4c-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -4122,6 +4122,7 @@ BR2_PACKAGE_HOST_UTIL_LINUX=y
 #
 # Legacy options removed in 2024.08
 #
+# BR2_PACKAGE_FLUTTER_DYNAMIC_LAYOUTS_EXAMPLE is not set
 # BR2_KERNEL_HEADERS_6_9 is not set
 # BR2_x86_knightslanding is not set
 # BR2_x86_knightsmill is not set
