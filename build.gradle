@@ -71,6 +71,9 @@ copyBuildrootImages.dependsOn(generateLegalInfo)
 compileJava.dependsOn(copyBuildrootImages)
 compileJava.dependsOn(copyBuildrootLicenses)
 
+processResources.dependsOn(copyBuildrootImages)
+processResources.dependsOn(copyBuildrootLicenses)
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
