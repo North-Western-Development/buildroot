@@ -48,7 +48,7 @@ task compileBuildroot(type: Exec) {
 
 task generateLegalInfo(type: Exec) {
     if (Os.isFamily(Os.FAMILY_UNIX)) {
-        commandLine("make", "legal-info", "LINUX_LICENSE_FILES=COPYING LICENSES/preferred/GPL-2.0 LICENSES/exceptions/Linux-syscall-note", "LINUX_HEADERS_LICENSE_FILES=COPYING LICENSES/preferred/GPL-2.0 LICENSES/exceptions/Linux-syscall-note")
+        commandLine("make", "legal-info")
     } else {
         enabled = false
     }
