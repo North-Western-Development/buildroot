@@ -18,7 +18,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 17
+          java-version: 21
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Validate Gradle wrapper
@@ -44,7 +44,7 @@ jobs:
           GPR_KEY: ${{ secrets.GPR_KEY }}
 
       - name: Add Artifacts to Github Release
-        uses: alexellis/upload-assets@0.3.0
+        uses: alexellis/upload-assets@0.4.1
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
