@@ -9,7 +9,7 @@ jobs:
     name: publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # See https://github.com/actions/virtual-environments/issues/2577#issuecomment-845126269
       - name: Blocked mirror workaround
@@ -23,14 +23,14 @@ jobs:
         run: chmod +x gradlew
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ubuntu-latest-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: ubuntu-latest-gradle-
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: |
             dl
