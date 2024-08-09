@@ -61,6 +61,7 @@ define MUSL_INSTALL_STAGING_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) \
 		DESTDIR=$(STAGING_DIR) install-libs install-tools install-headers
 	ln -sf libc.so $(STAGING_DIR)/lib/ld-musl*
+	ln -sf ../lib/libc.so $(STAGING_DIR)/bin/ldd
 endef
 
 define MUSL_INSTALL_TARGET_CMDS
@@ -68,6 +69,7 @@ define MUSL_INSTALL_TARGET_CMDS
 		DESTDIR=$(TARGET_DIR) install-libs
 	$(RM) $(addprefix $(TARGET_DIR)/lib/,crt1.o crtn.o crti.o rcrt1.o Scrt1.o)
 	ln -sf libc.so $(TARGET_DIR)/lib/ld-musl*
+	ln -sf ../lib/libc.so $(TARGET_DIR)/bin/ldd
 endef
 
 $(eval $(generic-package))
