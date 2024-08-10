@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g0745871b9d Configuration
+# Buildroot -g2d81501ada Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -3782,8 +3782,7 @@ BR2_PACKAGE_XVISOR_ARCH_SUPPORTS=y
 # BR2_PACKAGE_MC is not set
 # BR2_PACKAGE_MG is not set
 # BR2_PACKAGE_MOST is not set
-BR2_PACKAGE_NANO=y
-BR2_PACKAGE_NANO_TINY=y
+# BR2_PACKAGE_NANO is not set
 # BR2_PACKAGE_UEMACS is not set
 
 #
