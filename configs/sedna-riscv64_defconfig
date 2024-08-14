@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -ga661948087 Configuration
+# Buildroot -ga0a553f4cf Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -66,7 +66,7 @@ BR2_RISCV_ISA_RVM=y
 BR2_RISCV_ISA_RVA=y
 BR2_RISCV_ISA_RVF=y
 BR2_RISCV_ISA_RVD=y
-# BR2_RISCV_ISA_RVC is not set
+BR2_RISCV_ISA_RVC=y
 # BR2_RISCV_ISA_RVV is not set
 # BR2_RISCV_32 is not set
 BR2_RISCV_64=y
