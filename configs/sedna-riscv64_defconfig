@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -ga0a553f4cf Configuration
+# Buildroot -g8838456d41 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -370,7 +370,7 @@ BR2_INIT_BUSYBOX=y
 # BR2_INIT_OPENRC is not set
 
 #
-# systemd needs a glibc toolchain w/ SSP, headers >= 3.15, host and target gcc >= 5
+# systemd needs a glibc toolchain w/ SSP, headers >= 3.15, host and target gcc >= 8
 #
 # BR2_INIT_NONE is not set
 # BR2_ROOTFS_DEVICE_CREATION_STATIC is not set
@@ -425,7 +425,7 @@ BR2_LINUX_KERNEL_LATEST_VERSION=y
 # BR2_LINUX_KERNEL_CUSTOM_GIT is not set
 # BR2_LINUX_KERNEL_CUSTOM_HG is not set
 # BR2_LINUX_KERNEL_CUSTOM_SVN is not set
-BR2_LINUX_KERNEL_VERSION="6.10.3"
+BR2_LINUX_KERNEL_VERSION="6.10.6"
 BR2_LINUX_KERNEL_PATCH=""
 # BR2_LINUX_KERNEL_USE_DEFCONFIG is not set
 # BR2_LINUX_KERNEL_USE_ARCH_DEFAULT_CONFIG is not set
@@ -899,7 +899,6 @@ BR2_PACKAGE_PROVIDES_HOST_GETTEXT="host-gettext-tiny"
 #
 # flare-engine needs a toolchain w/ C++, dynamic library
 #
-# BR2_PACKAGE_FROTZ is not set
 
 #
 # gnuchess needs a toolchain w/ C++, threads
@@ -1183,7 +1182,6 @@ BR2_PACKAGE_NETSURF_ARCH_SUPPORTS=y
 #
 # BR2_PACKAGE_EVEMU is not set
 # BR2_PACKAGE_EVTEST is not set
-# BR2_PACKAGE_FAN_CTRL is not set
 # BR2_PACKAGE_FCONFIG is not set
 BR2_PACKAGE_FLASHROM_ARCH_SUPPORTS=y
 # BR2_PACKAGE_FLASHROM is not set
@@ -1664,7 +1662,7 @@ BR2_PACKAGE_PROVIDES_HOST_ZLIB="host-libzlib"
 BR2_PACKAGE_BOTAN_ARCH_SUPPORTS=y
 
 #
-# botan needs a toolchain w/ C++, gcc >= 10
+# botan needs a toolchain w/ threads, C++, gcc >= 11
 #
 # BR2_PACKAGE_CA_CERTIFICATES is not set
 # BR2_PACKAGE_CRYPTODEV_LINUX is not set
@@ -3988,6 +3986,8 @@ BR2_PACKAGE_HOST_UTIL_LINUX=y
 #
 # Legacy options removed in 2024.08
 #
+# BR2_PACKAGE_FROTZ is not set
+# BR2_PACKAGE_FAN_CTRL is not set
 # BR2_PACKAGE_FLUTTER_DYNAMIC_LAYOUTS_EXAMPLE is not set
 # BR2_KERNEL_HEADERS_6_9 is not set
 # BR2_x86_knightslanding is not set
