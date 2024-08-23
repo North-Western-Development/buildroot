@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g8838456d41 Configuration
+# Buildroot -ge72eb402ad Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -322,7 +322,7 @@ BR2_STRIP_EXCLUDE_DIRS=""
 # BR2_OPTIMIZE_G is not set
 BR2_OPTIMIZE_S=y
 # BR2_OPTIMIZE_FAST is not set
-# BR2_ENABLE_LTO is not set
+BR2_ENABLE_LTO=y
 # BR2_STATIC_LIBS is not set
 BR2_SHARED_LIBS=y
 # BR2_SHARED_STATIC_LIBS is not set
