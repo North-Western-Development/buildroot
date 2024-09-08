@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g2075440c51 Configuration
+# Buildroot -g8f7c02aa97 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -1507,7 +1507,8 @@ BR2_PACKAGE_LUASOCKET=y
 # BR2_PACKAGE_WSAPI_FCGI is not set
 # BR2_PACKAGE_WSAPI_XAVANTE is not set
 # BR2_PACKAGE_XAVANTE is not set
-# BR2_PACKAGE_MICROPYTHON is not set
+BR2_PACKAGE_MICROPYTHON=y
+# BR2_PACKAGE_MICROPYTHON_LIB is not set
 # BR2_PACKAGE_MOARVM is not set
 BR2_PACKAGE_HOST_MONO_ARCH_SUPPORTS=y
 
