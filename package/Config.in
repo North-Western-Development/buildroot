@@ -205,6 +205,7 @@ menu "Development tools"
 	source "package/subversion/Config.in"
 	source "package/tig/Config.in"
 	source "package/tree/Config.in"
+	source "package/tinycc/Config.in"
 	source "package/unifdef/Config.in"
 	source "package/yasm/Config.in"
 endmenu

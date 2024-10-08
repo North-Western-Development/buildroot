@@ -1,0 +1,10 @@
+--- a/Makefile.orig
++++ b/Makefile
+@@ -353,7 +353,6 @@
+ 	$(call IFw,$(LIBTCC1) $(B_O) $(LIBTCC1_U),"$(tccdir)")
+ 	$(call IF,$(TOPSRC)/include/*.h $(TOPSRC)/tcclib.h,"$(tccdir)/include")
+ 	$(call $(if $(findstring .so,$(LIBTCC)),IBw,IFw),$(LIBTCC),"$(libdir)")
+-	$(call IF,$(TOPSRC)/libtcc.h,"$(includedir)")
+ 	$(call IFw,tcc.1,"$(mandir)/man1")
+ 	$(call IFw,tcc-doc.info,"$(infodir)")
+ 	$(call IFw,tcc-doc.html,"$(docdir)")

@@ -1,0 +1,11 @@
+--- a/configure.orig
++++ b/configure
+@@ -336,7 +336,7 @@
+ exit 1
+ fi
+ 
+-if test -z "$cross_prefix" ; then
++if false ; then
+   CONFTEST=./conftest$EXESUF
+   if ! $cc -o $CONFTEST $source_path/conftest.c 2>/dev/null ; then
+     echo "configure: error: '$cc' failed to compile conftest.c."
