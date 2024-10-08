@@ -45,8 +45,8 @@ jobs:
           GPR_USER: ${{ secrets.GPR_USER }}
           GPR_KEY: ${{ secrets.GPR_KEY }}
 
-      - name: Build SDK
-        run: ./sedna-sdk/build.sh
+      - name: Package Headers
+        run: ./sedna-headers/build.sh
 
       - name: Add Artifacts to Github Release
         uses: alexellis/upload-assets@0.4.1
