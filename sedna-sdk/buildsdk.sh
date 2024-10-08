@@ -1,7 +1,7 @@
 #!/bin/sh -x
 scriptdir="$(realpath "${0%/*}")"
 cd "$scriptdir" || { printf '%s\n' 'Failed to cd to the scripts directory'; exit 1; }
-make -C ..
+[ -z "$SEDNA_SDK_NO_MAKE" ] && make -C ..
 export PATH="$scriptdir/../output/host/bin:$PATH"
 
 rm -rf tccsrc sdk
