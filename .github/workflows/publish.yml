@@ -20,6 +20,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v3
       - uses: actions/cache@v4
@@ -29,6 +30,7 @@ jobs:
             ~/.gradle/wrapper
           key: ubuntu-latest-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: ubuntu-latest-gradle-
+
       - uses: actions/cache@v4
         with:
           path: |
@@ -36,18 +38,22 @@ jobs:
             ~/.buildroot-ccache
           key: ubuntu-latest-buildroot-${{ hashFiles('.config') }}
           restore-keys: ubuntu-latest-buildroot-
+
       - name: Build with Gradle
         run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' build
         env:
           GPR_USER: ${{ secrets.GPR_USER }}
           GPR_KEY: ${{ secrets.GPR_KEY }}
 
+      - name: Build SDK
+        run: ./sedna-sdk/build.sh
+
       - name: Add Artifacts to Github Release
         uses: alexellis/upload-assets@0.4.1
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./build/libs/*.jar"]'
+          asset_paths: '["./build/libs/*.jar", "./sedna-sdk/sdk.tar.xz"]'
 
       - name: Publish to Github Packages
         run: gradle -Psemver='${{ github.event.release.tag_name }}' publish
