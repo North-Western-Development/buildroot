@@ -53,7 +53,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./build/libs/*.jar", "./sedna-sdk/sdk.tar.xz"]'
+          asset_paths: '["./build/libs/*.jar", "./sedna-headers/headers.tar.xz"]'
 
       - name: Publish to Github Packages
         run: gradle -Psemver='${{ github.event.release.tag_name }}' publish
