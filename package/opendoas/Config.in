@@ -1,0 +1,8 @@
+config BR2_PACKAGE_OPENDOAS
+	bool "opendoas"
+	select BR2_PACKAGE_HAS_OPENDOAS
+	help
+	  OpenDoas - A portable fork of the OpenBSD `doas` command
+
+	  https://github.com/Duncaen/OpenDoas
+
