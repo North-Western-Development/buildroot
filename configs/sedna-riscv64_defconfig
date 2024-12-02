@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g89dc583206 Configuration
+# Buildroot 2024.11-rc2-64-g3a6975b652-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -103,7 +103,7 @@ BR2_KERNEL_HEADERS_AS_KERNEL=y
 # BR2_KERNEL_HEADERS_5_15 is not set
 # BR2_KERNEL_HEADERS_6_1 is not set
 # BR2_KERNEL_HEADERS_6_6 is not set
-# BR2_KERNEL_HEADERS_6_10 is not set
+# BR2_KERNEL_HEADERS_6_11 is not set
 # BR2_KERNEL_HEADERS_VERSION is not set
 # BR2_KERNEL_HEADERS_CUSTOM_TARBALL is not set
 # BR2_KERNEL_HEADERS_CUSTOM_GIT is not set
@@ -121,10 +121,10 @@ BR2_PACKAGE_GLIBC_SUPPORTS=y
 # Binutils Options
 #
 BR2_PACKAGE_HOST_BINUTILS_SUPPORTS_CFI=y
-# BR2_BINUTILS_VERSION_2_40_X is not set
 # BR2_BINUTILS_VERSION_2_41_X is not set
-BR2_BINUTILS_VERSION_2_42_X=y
-BR2_BINUTILS_VERSION="2.42"
+# BR2_BINUTILS_VERSION_2_42_X is not set
+BR2_BINUTILS_VERSION_2_43_X=y
+BR2_BINUTILS_VERSION="2.43.1"
 # BR2_BINUTILS_GPROFNG is not set
 BR2_BINUTILS_EXTRA_CONFIG_OPTIONS=""
 
@@ -236,8 +236,9 @@ BR2_TOOLCHAIN_HEADERS_AT_LEAST_6_7=y
 BR2_TOOLCHAIN_HEADERS_AT_LEAST_6_8=y
 BR2_TOOLCHAIN_HEADERS_AT_LEAST_6_9=y
 BR2_TOOLCHAIN_HEADERS_AT_LEAST_6_10=y
+BR2_TOOLCHAIN_HEADERS_AT_LEAST_6_11=y
 BR2_TOOLCHAIN_HEADERS_LATEST=y
-BR2_TOOLCHAIN_HEADERS_AT_LEAST="6.10"
+BR2_TOOLCHAIN_HEADERS_AT_LEAST="6.11"
 BR2_TOOLCHAIN_GCC_AT_LEAST_4_3=y
 BR2_TOOLCHAIN_GCC_AT_LEAST_4_4=y
 BR2_TOOLCHAIN_GCC_AT_LEAST_4_5=y
@@ -365,6 +366,10 @@ BR2_TARGET_GENERIC_ISSUE="Welcome to Sedna"
 BR2_TARGET_GENERIC_PASSWD_SHA256=y
 # BR2_TARGET_GENERIC_PASSWD_SHA512 is not set
 BR2_TARGET_GENERIC_PASSWD_METHOD="sha-256"
+
+#
+# General purpose
+#
 BR2_INIT_BUSYBOX=y
 # BR2_INIT_SYSV is not set
 # BR2_INIT_OPENRC is not set
@@ -372,6 +377,12 @@ BR2_INIT_BUSYBOX=y
 #
 # systemd needs a glibc toolchain w/ SSP, headers >= 3.15, host and target gcc >= 8
 #
+
+#
+# Special purpose (read help)
+#
+# BR2_INIT_TINI is not set
+# BR2_INIT_TINYINIT is not set
 # BR2_INIT_NONE is not set
 # BR2_ROOTFS_DEVICE_CREATION_STATIC is not set
 BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_DEVTMPFS=y
@@ -425,7 +436,7 @@ BR2_LINUX_KERNEL_LATEST_VERSION=y
 # BR2_LINUX_KERNEL_CUSTOM_GIT is not set
 # BR2_LINUX_KERNEL_CUSTOM_HG is not set
 # BR2_LINUX_KERNEL_CUSTOM_SVN is not set
-BR2_LINUX_KERNEL_VERSION="6.10.14"
+BR2_LINUX_KERNEL_VERSION="6.11.10"
 BR2_LINUX_KERNEL_PATCH=""
 # BR2_LINUX_KERNEL_USE_DEFCONFIG is not set
 # BR2_LINUX_KERNEL_USE_ARCH_DEFAULT_CONFIG is not set
@@ -674,6 +685,11 @@ BR2_PACKAGE_BPFTOOL_ARCH_SUPPORTS=y
 # duma needs a toolchain w/ C++, threads, dynamic library
 #
 # BR2_PACKAGE_FIO is not set
+BR2_PACKAGE_FWTS_ARCH_SUPPORTS=y
+
+#
+# fwts needs a glibc toolchain w/ wchar, threads, dynamic library
+#
 BR2_PACKAGE_GDB_ARCH_SUPPORTS=y
 
 #
@@ -755,7 +771,6 @@ BR2_PACKAGE_PERFTEST_ARCH_SUPPORTS=y
 # BR2_PACKAGE_AVOCADO is not set
 # BR2_PACKAGE_BINUTILS is not set
 # BR2_PACKAGE_BITWISE is not set
-# BR2_PACKAGE_BSDIFF is not set
 # BR2_PACKAGE_CHECK is not set
 BR2_PACKAGE_CMAKE_ARCH_SUPPORTS=y
 
@@ -1129,6 +1144,7 @@ BR2_PACKAGE_NETSURF_ARCH_SUPPORTS=y
 #
 # bcache-tools needs udev /dev management
 #
+# BR2_PACKAGE_BFSCRIPTS is not set
 
 #
 # brickd needs udev /dev management, a toolchain w/ threads, wchar
@@ -1194,6 +1210,7 @@ BR2_PACKAGE_FLASHROM_ARCH_SUPPORTS=y
 # BR2_PACKAGE_HWDATA is not set
 # BR2_PACKAGE_HWLOC is not set
 # BR2_PACKAGE_INPUT_EVENT_DAEMON is not set
+# BR2_PACKAGE_IOTOOLS is not set
 # BR2_PACKAGE_IPMITOOL is not set
 # BR2_PACKAGE_IRDA_UTILS is not set
 # BR2_PACKAGE_KBD is not set
@@ -1466,6 +1483,7 @@ BR2_PACKAGE_LUA_CJSON=y
 # BR2_PACKAGE_LUA_TESTMORE is not set
 # BR2_PACKAGE_LUA_UBJSON is not set
 # BR2_PACKAGE_LUA_UTF8 is not set
+# BR2_PACKAGE_LUA_UUID is not set
 # BR2_PACKAGE_LUA_VALUA is not set
 # BR2_PACKAGE_LUA_ZLIB is not set
 
@@ -1695,6 +1713,7 @@ BR2_PACKAGE_LIBGPG_ERROR_SYSCFG="riscv64-unknown-linux-gnu"
 # BR2_PACKAGE_LIBXCRYPT is not set
 # BR2_PACKAGE_MBEDTLS is not set
 # BR2_PACKAGE_NETTLE is not set
+# BR2_PACKAGE_OATH_TOOLKIT is not set
 BR2_PACKAGE_LIBRESSL_ARCH_SUPPORTS=y
 # BR2_PACKAGE_OPENSSL is not set
 BR2_PACKAGE_PROVIDES_HOST_OPENSSL="host-libopenssl"
@@ -2097,7 +2116,7 @@ BR2_PACKAGE_GNU_EFI_ARCH_SUPPORTS=y
 # BR2_PACKAGE_TSLIB is not set
 
 #
-# uhd needs a toolchain w/ C++, NPTL, wchar, dynamic library, gcc >= 5
+# uhd needs a toolchain w/ C++, NPTL, wchar, dynamic library, gcc >= 7
 #
 
 #
@@ -2120,7 +2139,6 @@ BR2_PACKAGE_GNU_EFI_ARCH_SUPPORTS=y
 # BR2_PACKAGE_JSON_JAVASCRIPT is not set
 # BR2_PACKAGE_JSZIP is not set
 # BR2_PACKAGE_OPENLAYERS is not set
-# BR2_PACKAGE_POPPERJS is not set
 # BR2_PACKAGE_VIS_NETWORK is not set
 # BR2_PACKAGE_VUEJS is not set
 
@@ -2349,6 +2367,10 @@ BR2_PACKAGE_LIBCAMERA_ARCH_SUPPORTS=y
 #
 # BR2_PACKAGE_C_ARES is not set
 # BR2_PACKAGE_CNI_PLUGINS is not set
+
+#
+# cpp-httplib needs a toolchain w/ C++, wchar, threads
+#
 
 #
 # cppzmq needs a toolchain w/ C++, threads
@@ -2676,6 +2698,10 @@ BR2_PACKAGE_LIBCAMERA_ARCH_SUPPORTS=y
 # dawgdic needs a toolchain w/ C++, gcc >= 4.6
 #
 # BR2_PACKAGE_DING_LIBS is not set
+
+#
+# dlib needs a toolchain w/ C++, threads, wchar
+#
 # BR2_PACKAGE_DOTCONF is not set
 
 #
@@ -3046,7 +3072,7 @@ BR2_PACKAGE_READLINE=y
 BR2_PACKAGE_BITCOIN_ARCH_SUPPORTS=y
 
 #
-# bitcoin needs a toolchain w/ C++, threads, wchar, gcc >= 9
+# bitcoin needs a toolchain w/ C++, threads, wchar, gcc >= 11
 #
 # BR2_PACKAGE_COLLECTD is not set
 # BR2_PACKAGE_COLLECTL is not set
@@ -3220,7 +3246,10 @@ BR2_PACKAGE_DROPBEAR_LOCALOPTIONS_FILE=""
 #
 # freeswitch needs a toolchain w/ C++, dynamic library, threads, wchar
 #
-# BR2_PACKAGE_FRR is not set
+
+#
+# frr needs a toolchain w/ threads, dynamic library, C++, host gcc >= 7
+#
 
 #
 # gerbera needs a toolchain w/ C++, dynamic library, threads, wchar, gcc >= 8
@@ -3249,6 +3278,7 @@ BR2_PACKAGE_HAPROXY_ARCH_SUPPORTS=y
 #
 # i2pd needs a toolchain w/ C++, NPTL, wchar
 #
+# BR2_PACKAGE_IANA_ASSIGNMENTS is not set
 
 #
 # ibrdtn-tools needs a toolchain w/ C++, threads
@@ -3442,6 +3472,7 @@ BR2_PACKAGE_IFUPDOWN_SCRIPTS=y
 # BR2_PACKAGE_SSLH is not set
 # BR2_PACKAGE_STRONGSWAN is not set
 # BR2_PACKAGE_STUNNEL is not set
+# BR2_PACKAGE_TAILSCALE is not set
 # BR2_PACKAGE_TCPDUMP is not set
 # BR2_PACKAGE_TCPING is not set
 # BR2_PACKAGE_TCPREPLAY is not set
@@ -3827,6 +3858,7 @@ BR2_TARGET_EDK2_ARCH_SUPPORTS=y
 # BR2_TARGET_EDK2 is not set
 BR2_TARGET_GRUB2_ARCH_SUPPORTS=y
 # BR2_TARGET_GRUB2 is not set
+# BR2_TARGET_OPTEE_OS is not set
 BR2_TARGET_OPENSBI=y
 BR2_TARGET_OPENSBI_LATEST_VERSION=y
 # BR2_TARGET_OPENSBI_CUSTOM_VERSION is not set
@@ -3848,6 +3880,7 @@ BR2_TARGET_OPENSBI_ADDITIONAL_VARIABLES=""
 # BR2_PACKAGE_HOST_AESPIPE is not set
 # BR2_PACKAGE_HOST_AGENT_PROXY is not set
 # BR2_PACKAGE_HOST_AMLOGIC_BOOT_FIP is not set
+# BR2_PACKAGE_HOST_ANDES_SPI_BURN is not set
 # BR2_PACKAGE_HOST_ANDROID_TOOLS is not set
 # BR2_PACKAGE_HOST_ASN1C is not set
 # BR2_PACKAGE_HOST_BABELTRACE2 is not set
@@ -3890,7 +3923,11 @@ BR2_PACKAGE_HOST_FLUTTER_SDK_BIN_ARCH_SUPPORTS=y
 BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS=y
 BR2_PACKAGE_HOST_GO_TARGET_CGO_LINKING_SUPPORTS=y
 BR2_PACKAGE_HOST_GO_HOST_ARCH_SUPPORTS=y
-BR2_PACKAGE_PROVIDES_HOST_GO="host-go-src"
+BR2_PACKAGE_HOST_GO_HOST_CGO_LINKING_SUPPORTS=y
+# BR2_PACKAGE_HOST_GO is not set
+BR2_PACKAGE_PROVIDES_HOST_GO="host-go-bin"
+BR2_PACKAGE_HOST_GO_BIN_HOST_ARCH="amd64"
+BR2_PACKAGE_HOST_GO_BIN_HOST_ARCH_SUPPORTS=y
 BR2_PACKAGE_HOST_GO_BOOTSTRAP_STAGE1_ARCH_SUPPORTS=y
 BR2_PACKAGE_HOST_GO_BOOTSTRAP_STAGE2_ARCH_SUPPORTS=y
 BR2_PACKAGE_HOST_GO_BOOTSTRAP_STAGE3_ARCH_SUPPORTS=y
@@ -3976,6 +4013,22 @@ BR2_PACKAGE_HOST_UTIL_LINUX=y
 #
 # Legacy config options
 #
+
+#
+# Legacy options removed in 2024.11
+#
+# BR2_PACKAGE_BSDIFF is not set
+# BR2_PACKAGE_PROCPS_NS_ORIGINAL_TOP is not set
+# BR2_PACKAGE_QEMU_TARGET_NIOS2 is not set
+# BR2_PACKAGE_POPPERJS is not set
+# BR2_KERNEL_HEADERS_6_10 is not set
+BR2_PACKAGE_IPMITOOL_PEN_REG_URI=""
+# BR2_PACKAGE_ERLANG_P1_YAML is not set
+# BR2_PACKAGE_ERLANG_P1_XMPP is not set
+# BR2_PACKAGE_ERLANG_P1_XML is not set
+# BR2_PACKAGE_ERLANG_P1_STUN is not set
+# BR2_PACKAGE_FBV_GIF is not set
+# BR2_BINUTILS_VERSION_2_40_X is not set
 
 #
 # Legacy options removed in 2024.08
