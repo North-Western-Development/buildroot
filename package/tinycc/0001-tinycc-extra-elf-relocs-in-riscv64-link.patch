@@ -1,6 +1,6 @@
 --- a/riscv64-link.c.orig
 +++ b/riscv64-link.c
-@@ -79,6 +79,9 @@
+@@ -85,6 +85,9 @@
      case R_RISCV_PCREL_LO12_I:
      case R_RISCV_PCREL_LO12_S:
      case R_RISCV_32_PCREL:
@@ -10,7 +10,7 @@
      case R_RISCV_ADD32:
      case R_RISCV_ADD64:
      case R_RISCV_SUB32:
-@@ -208,10 +211,12 @@
+@@ -214,10 +217,12 @@
                             | (((val - addr) & 0xfff) << 20));
          return;
      case R_RISCV_PCREL_HI20:
@@ -22,9 +22,9 @@
 +        off64 = type == R_RISCV_PCREL_HI20 ? -addr : 0;
 +        off64 = (int64_t)(val + off64 + 0x800) >> 12;
          if ((off64 + ((uint64_t)1 << 20)) >> 21)
-           tcc_error("R_RISCV_PCREL_HI20 relocation failed: off=%lx cond=%lx sym=%s",
+           tcc_error_noabort("R_RISCV_PCREL_HI20 relocation failed: off=%lx cond=%lx sym=%s",
                      (long)off64, (long)((int64_t)(off64 + ((uint64_t)1 << 20)) >> 21),
-@@ -232,22 +237,26 @@
+@@ -238,22 +243,26 @@
                         | ((off64 & 0xfffff) << 12));
          return;
      case R_RISCV_PCREL_LO12_I:
@@ -34,7 +34,7 @@
  #endif
 -        if (val != last_hi.addr)
 +        if (type == R_RISCV_PCREL_LO12_I && val != last_hi.addr)
-           tcc_error("unsupported hi/lo pcrel reloc scheme");
+           tcc_error_noabort("unsupported hi/lo pcrel reloc scheme");
          val = last_hi.val;
          addr = last_hi.addr;
 +        off64 = type == R_RISCV_PCREL_LO12_I ? -addr : 0;
@@ -46,7 +46,7 @@
 -        if (val != last_hi.addr)
 +    case R_RISCV_LO12_S:
 +        if (type == R_RISCV_PCREL_LO12_I && val != last_hi.addr)
-           tcc_error("unsupported hi/lo pcrel reloc scheme");
+           tcc_error_noabort("unsupported hi/lo pcrel reloc scheme");
          val = last_hi.val;
          addr = last_hi.addr;
 -        off32 = val - addr;
@@ -55,3 +55,4 @@
          write32le(ptr, (read32le(ptr) & ~0xfe000f80)
                         | ((off32 & 0xfe0) << 20)
                         | ((off32 & 0x01f) << 7));
+
