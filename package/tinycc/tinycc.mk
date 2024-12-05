@@ -25,6 +25,7 @@ define TINYCC_CONFIGURE_CMDS
 		./configure \
 			--prefix="/usr" \
 			--libdir="/usr/lib" \
+			--crtprefix="/usr/lib" \
 			--cpu=riscv64 \
 			--cc="$(TARGET_CC)" \
 			--ar="$(TARGET_AR)" \
