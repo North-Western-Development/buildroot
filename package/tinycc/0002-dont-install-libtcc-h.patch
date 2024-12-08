@@ -1,6 +1,6 @@
 --- a/Makefile.orig
 +++ b/Makefile
-@@ -372,7 +372,6 @@
+@@ -373,7 +373,6 @@
  	$(call IFw,$(LIBTCC1) $(EXTRA_O) $(LIBTCC1_U),"$(tccdir)")
  	$(call IF,$(TOPSRC)/include/*.h $(TOPSRC)/tcclib.h,"$(tccdir)/include")
  	$(call $(if $(findstring .so,$(LIBTCC)),IBw,IFw),$(LIBTCC),"$(libdir)")
