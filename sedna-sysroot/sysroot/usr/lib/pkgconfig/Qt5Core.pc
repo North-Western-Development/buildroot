@@ -1,0 +1,14 @@
+prefix=/home/deck/devel/buildroot/output/host/riscv64-buildroot-linux-musl/sysroot/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include/qt5
+
+host_bins=/home/deck/devel/buildroot/output/host/bin
+qt_config=shared shared release c++11 c++14 c++17 c++1z concurrent reduce_exports release_tools stl properties animation textcodec big_codecs clock-monotonic codecs itemmodel proxymodel concatenatetablesproxymodel textdate datestring doubleconversion eventfd filesystemiterator filesystemwatcher gestures identityproxymodel inotify library mimetype process statemachine regularexpression settings sharedmemory sortfilterproxymodel stringlistmodel systemsemaphore temporaryfile threadsafe-cloexec translation transposeproxymodel xmlstream xmlstreamreader xmlstreamwriter
+
+Name: Qt5 Core
+Description: Qt Core module
+Version: 5.15.14
+Libs: -L${libdir} -lQt5Core 
+Cflags: -DQT_CORE_LIB -I${includedir}/QtCore -I${includedir}
+

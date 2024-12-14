@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: fuse3
+Description: Filesystem in Userspace
+Version: 3.16.2
+Libs: -L${libdir} -lfuse3 -lpthread
+Libs.private: -ldl -pthread -lrt
+Cflags: -I${includedir}/fuse3
