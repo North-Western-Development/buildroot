@@ -12,6 +12,10 @@ public final class Buildroot {
     }
 
     public static InputStream getRootFilesystem() {
-        return Buildroot.class.getClassLoader().getResourceAsStream("generated/rootfs.ext2");
+        return Buildroot.class.getClassLoader().getResourceAsStream("generated/rootfs.cramfs");
+    }
+
+    public static InputStream getBootFilesystem() {
+        return Buildroot.class.getClassLoader().getResourceAsStream("generated/boot.squashfs");
     }
 }
