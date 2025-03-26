@@ -42,7 +42,7 @@ task compileBuildroot(type: Exec) {
         logger.log(LogLevel.WARN, "Can only make buildroot on Linux. Expecting output files to have been manually placed in [output/images/].")
         enabled = false
     }
-    outputs.files "output/images/fw_jump.bin", "output/images/Image", "output/images/rootfs.cramfs", "output/images/boot.squashfs"
+    outputs.files "output/images/fw_jump.bin", "output/images/Image", "output/images/rootfs.cramfs"
     outputs.upToDateWhen { false }
 }
 
