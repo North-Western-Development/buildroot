@@ -30,7 +30,7 @@ jobs:
       - name: Add Artifacts to Github Release
         uses: alexellis/upload-assets@0.4.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           asset_paths: '["./build/libs/*.jar", "./sedna-headers/headers.tar.xz"]'
 
@@ -38,4 +38,4 @@ jobs:
         run: gradle -Psemver='${{ github.event.release.tag_name }}' publish
         env:
           GITHUB_MAVEN_URL: 'https://maven.pkg.github.com/${{ github.repository }}'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
