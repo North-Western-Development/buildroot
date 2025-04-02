@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g6baa9210b2 Configuration
+# Buildroot -ga7e093416b-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -2853,27 +2853,10 @@ BR2_PACKAGE_GNUPG2_DEPENDS=y
 # BR2_PACKAGE_MINISIGN is not set
 # BR2_PACKAGE_NEOFETCH is not set
 # BR2_PACKAGE_PDMENU is not set
-BR2_PACKAGE_PINENTRY=y
-
-#
-# pinentry-efl needs efl and X
-#
-
-#
-# pinentry-fltk needs X and a toolchain w/ C++
-#
-BR2_PACKAGE_PINENTRY_NCURSES=y
-
-#
-# pinentry-gtk2 needs X and a toolchain w/ wchar, threads, C++, gcc >= 4.9
-#
-# BR2_PACKAGE_PINENTRY_QT5 is not set
+# BR2_PACKAGE_PINENTRY is not set
 # BR2_PACKAGE_QPRINT is not set
 # BR2_PACKAGE_RANGER is not set
-BR2_PACKAGE_RLWRAP=y
-BR2_PACKAGE_RLWRAP_SPY_ON_READLINE=y
-BR2_PACKAGE_RLWRAP_HOMEGROWN_REDISPLAY=y
-BR2_PACKAGE_RLWRAP_MULTIBYTE_AWARE=y
+# BR2_PACKAGE_RLWRAP is not set
 # BR2_PACKAGE_RTTY is not set
 # BR2_PACKAGE_SCREEN is not set
 # BR2_PACKAGE_SCREENFETCH is not set
@@ -2894,7 +2877,7 @@ BR2_PACKAGE_TMUX=y
 #
 # BR2_PACKAGE_ACL is not set
 # BR2_PACKAGE_ANDROID_TOOLS is not set
-BR2_PACKAGE_ATOP=y
+# BR2_PACKAGE_ATOP is not set
 # BR2_PACKAGE_ATTR is not set
 # BR2_PACKAGE_BALENA_ENGINE is not set
 # BR2_PACKAGE_BUBBLEWRAP is not set
