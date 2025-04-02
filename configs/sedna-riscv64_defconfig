@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -gc3c1c998db-dirty Configuration
+# Buildroot -g027b060554-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -3097,7 +3097,7 @@ BR2_PACKAGE_XVISOR_ARCH_SUPPORTS=y
 # BR2_PACKAGE_MOST is not set
 BR2_PACKAGE_NANO=y
 BR2_PACKAGE_NANO_TINY=y
-BR2_PACKAGE_UEMACS=y
+# BR2_PACKAGE_UEMACS is not set
 # BR2_PACKAGE_VIM is not set
 
 #
