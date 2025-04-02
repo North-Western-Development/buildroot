@@ -59,3 +59,4 @@ Thumbs.db
 
 # Generated resources and licenses
 /src/main/resources/*
+sysroot.tar.xz
