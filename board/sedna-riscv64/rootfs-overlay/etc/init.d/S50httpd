@@ -7,33 +7,35 @@ HTTPD_ARGS="-f -h /var/www/html"
 [ -r /etc/default/http ] && . /etc/default/http
 
 start() {
-      printf "Starting httpd: "
-      start-stop-daemon -S -q -m -b -p /var/run/httpd.pid \
-			-x /usr/sbin/httpd -- $HTTPD_ARGS
-      [ $? = 0 ] && echo "OK" || echo "FAIL"
+    printf "Starting httpd: "
+    start-stop-daemon -S -q -m -b -p /var/run/httpd.pid -x /usr/sbin/httpd -- $HTTPD_ARGS
+    [ $? = 0 ] && echo "OK" || echo "FAIL"
 }
 
 stop() {
-	printf "Stopping httpd: "
-	start-stop-daemon -K -q -p /var/run/httpd.pid \
-			  -x /usr/sbin/httpd
-	[ $? = 0 ] && echo "OK" || echo "FAIL"
+    printf "Stopping httpd: "
+    start-stop-daemon -K -q -p /var/run/httpd.pid -x /usr/sbin/httpd
+    [ $? = 0 ] && echo "OK" || echo "FAIL"
 }
 
 case "$1" in
     start)
-	start
-	;;
+        start
+    ;;
+
     stop)
-	stop
-	;;
+        stop
+    ;;
+
     restart|reload)
-	stop
-	start
-	;;
-  *)
-	echo "Usage: $0 {start|stop|restart}"
-	exit 1
+        stop
+        start
+    ;;
+
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+    ;;
 esac
 
 exit $?
