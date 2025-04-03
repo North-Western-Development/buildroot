@@ -24,6 +24,24 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ubuntu-latest-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: ubuntu-latest-gradle-
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            dl
+            ~/.buildroot-ccache
+          key: ubuntu-latest-buildroot-${{ hashFiles('.config') }}
+          restore-keys: ubuntu-latest-buildroot-
+
       - name: Build with Gradle
         run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' build
 
