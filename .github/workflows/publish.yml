@@ -27,18 +27,29 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
 
+      - name: Download caches
+        run: |
+          ver=$(curl 'https://api.github.com/repos/${{ github.repository }}/tags' | jq -r '.[1].name') # get the second latest release number
+          [ "$ver" != "null" ] && wget 'https://github.com/${{ github.repository }}'/releases/download/$ver/cache.tar.zst && tar -C ~ -xf cache.tar.zst
+          [ -d ~/dl ] && mv ~/dl .
+
       - name: Build with Gradle
         run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' build
 
       - name: Package Sysroot
         run: ./sedna-sysroot/build.sh
 
+      - name: Prepare caches
+        run: |
+          [ -d dl ] && mv dl ~
+          tar -C ~ --zstd -cf cache.tar.zst .buildroot-ccache .gradle/caches .gradle/wrapper dl
+
       - name: Add Artifacts to Github Release
         uses: alexellis/upload-assets@0.4.1
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./build/libs/*.jar", "./sedna-sysroot/sysroot.tar.xz"]'
+          asset_paths: '["./build/libs/*.jar", "./sedna-sysroot/sysroot.tar.xz", "./cache.tar.zst"]'
 
       - name: Publish to Github Packages
         run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' publish
