@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 if [ "$(id -u)" != 0 ]; then
     printf 'This must be run as root.\n'
     exit 1
@@ -7,9 +9,12 @@ fi
 
 if [ -z "$1" ]; then
     printf 'usage: %s <drive>\n' "${0##*/}"
-elif ! [ -f "$1" ]; then
+    exit 1
+elif ! [ -e "$1" ]; then
     printf 'Drive %s not found.\n' "$1"
+    exit 1
 fi
+# If $1 is mounted, this will fail later with a bad error message.
 
 printf 'This will destroy all data on %s.\n' "$1"
 read -r -p "Are you sure? [y/N] " response
@@ -20,13 +25,14 @@ case $response in
 esac
 
 mkfs.ext2 "$1"
-tmpdir=$(mktemp)
+tmpdir=$(mktemp -d)
 mkdir "$tmpdir/mnt"
 mount "$1" "$tmpdir/mnt"
 mkdir "$tmpdir/mnt/upper"
 mkdir "$tmpdir/mnt/work"
+umount "$tmpdir/mnt"
 
-printf 'A reboot is required to use this drive.'
+printf 'A reboot is required to use this drive.\n'
 read -r -p "Reboot now? [Y/n] " response
 
 case $response in
