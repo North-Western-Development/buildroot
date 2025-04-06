@@ -7,8 +7,10 @@ fi
 
 if [ -z "$1" ]; then
     printf 'usage: %s <drive>\n' "${0##*/}"
+    exit 1
 elif ! [ -f "$1" ]; then
     printf 'Drive %s not found.\n' "$1"
+    exit 1
 fi
 
 printf 'This will destroy all data on %s.\n' "$1"
