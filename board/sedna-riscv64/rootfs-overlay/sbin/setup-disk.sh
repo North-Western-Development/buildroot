@@ -22,7 +22,7 @@ case $response in
 esac
 
 mkfs.ext2 "$1"
-tmpdir=$(mktemp)
+tmpdir=$(mktemp -d)
 mkdir "$tmpdir/mnt"
 mount "$1" "$tmpdir/mnt"
 mkdir "$tmpdir/mnt/upper"
