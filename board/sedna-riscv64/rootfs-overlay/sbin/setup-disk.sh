@@ -28,7 +28,7 @@ mount "$1" "$tmpdir/mnt"
 mkdir "$tmpdir/mnt/upper"
 mkdir "$tmpdir/mnt/work"
 
-printf 'A reboot is required to use this drive.'
+printf 'A reboot is required to use this drive.\n'
 read -r -p "Reboot now? [Y/n] " response
 
 case $response in
