@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -gd5ac06e6f0-dirty Configuration
+# Buildroot -g36377c5363-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -421,9 +421,11 @@ BR2_ENABLE_LOCALE_WHITELIST="C en_US"
 BR2_ROOTFS_USERS_TABLES=""
 BR2_ROOTFS_OVERLAY="board/sedna-riscv64/rootfs-overlay"
 BR2_ROOTFS_PRE_BUILD_SCRIPT=""
-BR2_ROOTFS_POST_BUILD_SCRIPT=""
+BR2_ROOTFS_POST_BUILD_SCRIPT="board/sedna-riscv64/post-build.sh"
 BR2_ROOTFS_POST_FAKEROOT_SCRIPT=""
 BR2_ROOTFS_POST_IMAGE_SCRIPT=""
+BR2_ROOTFS_POST_SCRIPT_ARGS=""
+BR2_ROOTFS_POST_BUILD_SCRIPT_ARGS=""
 
 #
 # Kernel
