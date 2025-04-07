@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 if [ "$(id -u)" != 0 ]; then
     printf 'This must be run as root.\n'
@@ -27,6 +27,7 @@ mkdir "$tmpdir/mnt"
 mount "$1" "$tmpdir/mnt"
 mkdir "$tmpdir/mnt/upper"
 mkdir "$tmpdir/mnt/work"
+umount "$tmpdir/mnt"
 
 printf 'A reboot is required to use this drive.\n'
 read -r -p "Reboot now? [Y/n] " response
