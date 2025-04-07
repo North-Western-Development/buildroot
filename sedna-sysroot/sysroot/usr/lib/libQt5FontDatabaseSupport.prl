@@ -1,7 +1,0 @@
-QMAKE_PRL_BUILD_DIR = /home/deck/devel/buildroot/output/build/qt5base-2b9835f5c9bcfe3105b60a8dd33c1db7d8611378/src/platformsupport/fontdatabases
-QMAKE_PRO_INPUT = fontdatabases.pro
-QMAKE_PRL_TARGET = libQt5FontDatabaseSupport.a
-QMAKE_PRL_CONFIG = lex yacc depend_includepath testcase_targets import_qpa_plugin prepare_docs qt_docs_targets qt_build_extra file_copies qmake_use qt warn_on release link_prl incremental nostrip cross_compile release linux unix posix gcc cross_compile ccache compile_examples enable_new_dtags largefile prefix_build force_independent force_bootstrap utf8_source create_prl link_prl no_private_qt_headers_warning QTDIR_build qt_example_installs exceptions_off testcase_exceptions explicitlib warning_clean static internal_module relative_qt_rpath git_build target_qt c++11 strict_c++ c++14 c++1z c99 c11 hide_symbols qt_install_headers need_fwd_pri qt_install_module create_cmake compiler_supports_fpmath create_libtool have_target staticlib thread moc resources
-QMAKE_PRL_VERSION = 5.15.14
-QMAKE_PRL_LIBS = -latomic $$[QT_INSTALL_LIBS]/libQt5Gui.so $$[QT_INSTALL_LIBS]/libQt5Core.so -lpthread -L$$[QT_INSTALL_LIBS] -lfreetype -lz -lrt -lpthread -ldl
-QMAKE_PRL_LIBS_FOR_CMAKE = -latomic;$$[QT_INSTALL_LIBS]/libQt5Gui.so;$$[QT_INSTALL_LIBS]/libQt5Core.so;-lpthread;-L$$[QT_INSTALL_LIBS];-lfreetype;-lz;-lrt;-lpthread;-ldl;
