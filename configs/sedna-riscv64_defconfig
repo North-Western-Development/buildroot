@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2025.02-173-gff1417da78 Configuration
+# Buildroot 2025.02-174-g9663f324e3 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -1557,8 +1557,8 @@ BR2_PACKAGE_LIBFUSE3=y
 #
 # exiv2 needs a uClibc or glibc toolchain w/ C++, wchar, dynamic library, threads
 #
-BR2_PACKAGE_FONTCONFIG=y
-BR2_PACKAGE_FREETYPE=y
+# BR2_PACKAGE_FONTCONFIG is not set
+# BR2_PACKAGE_FREETYPE is not set
 # BR2_PACKAGE_GD is not set
 # BR2_PACKAGE_GDK_PIXBUF is not set
 # BR2_PACKAGE_GIFLIB is not set
