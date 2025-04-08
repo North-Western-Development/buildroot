@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2025.02-171-g5e3dc543b0-dirty Configuration
+# Buildroot 2025.02-170-g2814d05b71 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -2756,7 +2756,7 @@ BR2_PACKAGE_BASH=y
 BR2_PACKAGE_BASH_COMPLETION=y
 # BR2_PACKAGE_CATATONIT is not set
 # BR2_PACKAGE_CCRYPT is not set
-# BR2_PACKAGE_DIALOG is not set
+BR2_PACKAGE_DIALOG=y
 # BR2_PACKAGE_DTACH is not set
 # BR2_PACKAGE_EASY_RSA is not set
 BR2_PACKAGE_FILE=y
