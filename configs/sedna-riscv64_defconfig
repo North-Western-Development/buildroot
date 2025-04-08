@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2025.02-170-g2814d05b71 Configuration
+# Buildroot 2025.02-171-gdb7200a894-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -325,8 +325,8 @@ BR2_OPTIMIZE_3=y
 # BR2_OPTIMIZE_FAST is not set
 BR2_ENABLE_LTO=y
 # BR2_STATIC_LIBS is not set
-# BR2_SHARED_LIBS is not set
-BR2_SHARED_STATIC_LIBS=y
+BR2_SHARED_LIBS=y
+# BR2_SHARED_STATIC_LIBS is not set
 BR2_PACKAGE_OVERRIDE_FILE="$(CONFIG_DIR)/local.mk"
 BR2_GLOBAL_PATCH_DIR="board/sedna-riscv64/patches"
 
@@ -342,14 +342,14 @@ BR2_GLOBAL_PATCH_DIR="board/sedna-riscv64/patches"
 # Security Hardening Options
 #
 BR2_PIC_PIE_ARCH_SUPPORTS=y
+# BR2_PIC_PIE is not set
 BR2_SSP_NONE=y
 # BR2_SSP_REGULAR is not set
 # BR2_SSP_STRONG is not set
 # BR2_SSP_ALL is not set
-
-#
-# RELocation Read Only (RELRO) needs shared libraries
-#
+BR2_RELRO_NONE=y
+# BR2_RELRO_PARTIAL is not set
+# BR2_RELRO_FULL is not set
 BR2_FORTIFY_SOURCE_ARCH_SUPPORTS=y
 
 #
@@ -2043,7 +2043,7 @@ BR2_PACKAGE_LIBCURL_OPENSSL=y
 #
 # BR2_PACKAGE_APR is not set
 # BR2_PACKAGE_APR_UTIL is not set
-BR2_PACKAGE_ARGP_STANDALONE=y
+# BR2_PACKAGE_ARGP_STANDALONE is not set
 # BR2_PACKAGE_ARMADILLO is not set
 # BR2_PACKAGE_ATF is not set
 # BR2_PACKAGE_AVRO_C is not set
@@ -2226,10 +2226,6 @@ BR2_PACKAGE_HOST_PROTOBUF_ARCH_SUPPORTS=y
 
 #
 # tensorflow-lite needs a toolchain w/ gcc >= 8, C++, threads
-#
-
-#
-# tensorflow-lite needs a toolchain w/ shared libraries
 #
 # BR2_PACKAGE_TINYCBOR is not set
 # BR2_PACKAGE_TL_EXPECTED is not set
@@ -2920,83 +2916,7 @@ BR2_PACKAGE_SYSTEMD_ARCH_SUPPORTS=y
 #
 # unscd needs a glibc toolchain
 #
-BR2_PACKAGE_UTIL_LINUX=y
-# BR2_PACKAGE_UTIL_LINUX_LIBBLKID is not set
-# BR2_PACKAGE_UTIL_LINUX_LIBFDISK is not set
-# BR2_PACKAGE_UTIL_LINUX_LIBMOUNT is not set
-# BR2_PACKAGE_UTIL_LINUX_LIBSMARTCOLS is not set
-BR2_PACKAGE_UTIL_LINUX_LIBUUID=y
-# BR2_PACKAGE_UTIL_LINUX_BINARIES is not set
-# BR2_PACKAGE_UTIL_LINUX_AGETTY is not set
-# BR2_PACKAGE_UTIL_LINUX_BFS is not set
-# BR2_PACKAGE_UTIL_LINUX_CAL is not set
-# BR2_PACKAGE_UTIL_LINUX_CHFN_CHSH is not set
-# BR2_PACKAGE_UTIL_LINUX_CHMEM is not set
-# BR2_PACKAGE_UTIL_LINUX_CRAMFS is not set
-# BR2_PACKAGE_UTIL_LINUX_EJECT is not set
-# BR2_PACKAGE_UTIL_LINUX_FALLOCATE is not set
-# BR2_PACKAGE_UTIL_LINUX_FDFORMAT is not set
-# BR2_PACKAGE_UTIL_LINUX_FSCK is not set
-# BR2_PACKAGE_UTIL_LINUX_HARDLINK is not set
-# BR2_PACKAGE_UTIL_LINUX_HWCLOCK is not set
-# BR2_PACKAGE_UTIL_LINUX_IPCMK is not set
-# BR2_PACKAGE_UTIL_LINUX_IPCRM is not set
-# BR2_PACKAGE_UTIL_LINUX_IPCS is not set
-# BR2_PACKAGE_UTIL_LINUX_IRQTOP is not set
-# BR2_PACKAGE_UTIL_LINUX_KILL is not set
-# BR2_PACKAGE_UTIL_LINUX_LAST is not set
-# BR2_PACKAGE_UTIL_LINUX_LINE is not set
-# BR2_PACKAGE_UTIL_LINUX_LOGGER is not set
-
-#
-# login needs a uClibc or glibc toolchain w/ wchar, locale, dynamic library, gcc >= 4.9
-#
-# BR2_PACKAGE_UTIL_LINUX_LOSETUP is not set
-# BR2_PACKAGE_UTIL_LINUX_LSFD is not set
-# BR2_PACKAGE_UTIL_LINUX_LSLOGINS is not set
-# BR2_PACKAGE_UTIL_LINUX_LSMEM is not set
-# BR2_PACKAGE_UTIL_LINUX_MESG is not set
-# BR2_PACKAGE_UTIL_LINUX_MINIX is not set
-# BR2_PACKAGE_UTIL_LINUX_MORE is not set
-# BR2_PACKAGE_UTIL_LINUX_MOUNT is not set
-# BR2_PACKAGE_UTIL_LINUX_MOUNTPOINT is not set
-# BR2_PACKAGE_UTIL_LINUX_NEWGRP is not set
-# BR2_PACKAGE_UTIL_LINUX_NOLOGIN is not set
-# BR2_PACKAGE_UTIL_LINUX_NSENTER is not set
-# BR2_PACKAGE_UTIL_LINUX_PG is not set
-# BR2_PACKAGE_UTIL_LINUX_PARTX is not set
-# BR2_PACKAGE_UTIL_LINUX_PIVOT_ROOT is not set
-
-#
-# raw needs a toolchain w/ headers < 5.14
-#
-# BR2_PACKAGE_UTIL_LINUX_RENAME is not set
-# BR2_PACKAGE_UTIL_LINUX_RFKILL is not set
-
-#
-# runuser needs a uClibc or glibc toolchain w/ wchar, locale, dynamic library, gcc >= 4.9
-#
-# BR2_PACKAGE_UTIL_LINUX_SCHEDUTILS is not set
-# BR2_PACKAGE_UTIL_LINUX_SETPRIV is not set
-# BR2_PACKAGE_UTIL_LINUX_SETTERM is not set
-
-#
-# su needs a uClibc or glibc toolchain w/ wchar, locale, dynamic library, gcc >= 4.9
-#
-# BR2_PACKAGE_UTIL_LINUX_SULOGIN is not set
-# BR2_PACKAGE_UTIL_LINUX_SWITCH_ROOT is not set
-# BR2_PACKAGE_UTIL_LINUX_TUNELP is not set
-# BR2_PACKAGE_UTIL_LINUX_UL is not set
-# BR2_PACKAGE_UTIL_LINUX_UNSHARE is not set
-# BR2_PACKAGE_UTIL_LINUX_UTMPDUMP is not set
-# BR2_PACKAGE_UTIL_LINUX_UUIDD is not set
-# BR2_PACKAGE_UTIL_LINUX_VIPW is not set
-# BR2_PACKAGE_UTIL_LINUX_WAITPID is not set
-# BR2_PACKAGE_UTIL_LINUX_WALL is not set
-# BR2_PACKAGE_UTIL_LINUX_WIPEFS is not set
-# BR2_PACKAGE_UTIL_LINUX_WDCTL is not set
-# BR2_PACKAGE_UTIL_LINUX_WRITE is not set
-# BR2_PACKAGE_UTIL_LINUX_ZRAMCTL is not set
+# BR2_PACKAGE_UTIL_LINUX is not set
 # BR2_PACKAGE_WATCHDOG is not set
 # BR2_PACKAGE_WATCHDOGD is not set
 # BR2_PACKAGE_XDG_DBUS_PROXY is not set
@@ -3013,7 +2933,7 @@ BR2_PACKAGE_XVISOR_ARCH_SUPPORTS=y
 # BR2_PACKAGE_MG is not set
 # BR2_PACKAGE_MOST is not set
 BR2_PACKAGE_NANO=y
-BR2_PACKAGE_NANO_TINY=y
+# BR2_PACKAGE_NANO_TINY is not set
 # BR2_PACKAGE_UEMACS is not set
 # BR2_PACKAGE_VIM is not set
 
