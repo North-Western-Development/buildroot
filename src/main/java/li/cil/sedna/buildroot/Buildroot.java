@@ -16,6 +16,6 @@ public final class Buildroot {
     }
 
     public static InputStream getBootFilesystem() {
-        return Buildroot.class.getClassLoader().getResourceAsStream("generated/boot.squashfs");
+        return Buildroot.class.getClassLoader().getResourceAsStream("generated/bootfs.squashfs");
     }
 }
