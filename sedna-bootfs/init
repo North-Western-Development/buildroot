@@ -42,13 +42,13 @@ fallback() {
 
 [ -e /dev/vdc ] || fallback
 
-if mount -o ro -t ext4 /dev/vdc /mnt/scratch; then
+if mount -o ro -t ext4 /dev/vdc /mnt/scratch 2>/dev/null; then
     fs=ext4
-elif mount -o ro -t cramfs /dev/vdc /mnt/scratch; then
+elif mount -o ro -t cramfs /dev/vdc /mnt/scratch 2>/dev/null; then
     fs=cramfs
-elif mount -o ro -t squashfs /dev/vdc /mnt/scratch; then
+elif mount -o ro -t squashfs /dev/vdc /mnt/scratch 2>/dev/null; then
     fs=squashfs
-elif mount -t auto /dev/vdc /mnt/scratch; then
+elif mount -t auto /dev/vdc /mnt/scratch 2>/dev/null; then
     fs=auto
 else
     fallback
