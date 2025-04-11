@@ -75,6 +75,7 @@ for init in /sbin/init /bin/init /init /etc/init /bin/bash /bin/sh; do
     fi
 done
 
-printf '/vdc is a mountable drive, but has no suitable init program\n'
+printf '/dev/vdc is a mountable drive, but has no suitable init program\n'
 printf 'You can configure it for use as an overlay, by creating a /upper and /work empty directory in it\n'
+umount /mnt/scratch
 fallback
