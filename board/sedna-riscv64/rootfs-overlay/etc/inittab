@@ -29,7 +29,7 @@ null::sysinit:/bin/ln -sf /proc/self/fd/2 /dev/stderr
 
 # Put a getty on the serial port
 console::sysinit:/bin/stty rows 24 columns 80
-console::respawn:/sbin/getty -L console 0 vt100 # GENERIC_SERIAL
+console::respawn:/sbin/getty -l /etc/_colorterm_login -L console 0 xterm-256color # GENERIC_SERIAL
 tty1:2345:respawn:/sbin/getty 0 tty1 linux # framebuffer
 
 # Stuff to do for the 3-finger salute

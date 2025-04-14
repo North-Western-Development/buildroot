@@ -1,0 +1,2 @@
+#!/bin/sh
+COLORTERM=truecolor exec /bin/login -p "$@"
