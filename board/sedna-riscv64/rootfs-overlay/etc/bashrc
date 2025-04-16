@@ -16,6 +16,6 @@ fi
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-for sh in /etc/bash/bashrc.d/*; do
+for sh in /etc/bashrc.d/*; do
     [ -r "$sh" ] && . "$sh"
 done
