@@ -1,5 +1,5 @@
-#!/bin/sh
-cd "$(realpath "${0%/*}")" || { printf '%s\n' "Failed to cd to the script's directory"; exit 1; }
+#!/bin/sh -e
+cd "$(realpath "${0%/*}")"
 [ -d ../output/host ] || make -C ..
 
 export PATH="$PWD/../output/host/bin:$PATH"
