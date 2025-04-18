@@ -1,2 +1,3 @@
 #!/bin/sh
+stty erase "^H"
 COLORTERM=truecolor exec /bin/login -p "$@"
