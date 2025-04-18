@@ -17,7 +17,7 @@ make -j"$(nproc)"
 
 mkdir -p bootfs/bin bootfs/proc bootfs/dev/pts bootfs/sys bootfs/mnt/scratch bootfs/mnt/builtin bootfs/mnt/upper bootfs/mnt/lower bootfs/sbin bootfs/newroot
 
-cp busyboxsrc/busybox bootfs/bin/busybox
+cp busyboxsrc/busybox bootfs/bin
 for applet in sh mkdir mount umount chroot; do
     ln -s busybox "bootfs/bin/$applet"
 done
