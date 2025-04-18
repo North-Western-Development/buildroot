@@ -1,4 +1,4 @@
-export PATH='/bin:/sbin:/usr/bin:/usr/sbin'
+export PATH='/bin:/sbin:/usr/bin:/usr/sbin:/mnt/builtin/bin'
 
 if [ "$(id -u)" = 0 ]; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \w \$\[\033[00m\] '
