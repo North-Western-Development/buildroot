@@ -27,7 +27,7 @@ endef
 
 define OPENDOAS_INSTALL_TARGET_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) DESTDIR="$(TARGET_DIR)" -C $(@D) install
-	printf 'permit nopass 0\npermit persist :wheel\n' > "$(TARGET_DIR)/etc/doas.conf"
+	printf 'permit persist :wheel\npermit nopass 0\n' > "$(TARGET_DIR)/etc/doas.conf"
 	chmod 640 "$(TARGET_DIR)/etc/doas.conf"
 endef
 
