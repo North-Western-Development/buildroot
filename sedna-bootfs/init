@@ -1,0 +1,81 @@
+#!/bin/sh -e
+
+overlay() {
+    printf 'Mounting overlay\n'
+    mount overlay -t overlay -o lowerdir=/mnt/lower,upperdir=/mnt/upper/upper,workdir=/mnt/upper/work /newroot
+}
+
+forkit() {
+    printf 'Mounting virtual filesystems\n'
+    mount udev -t devtmpfs /newroot/dev
+    mkdir -p /newroot/dev/pts
+    mount devpts -t devpts /newroot/dev/pts
+    mount sys -t sysfs /newroot/sys
+    mount proc -t proc /newroot/proc
+    printf 'Switching root\n'
+    exec chroot /newroot "${1:-/sbin/init}"
+}
+
+setup_ramfs() {
+    printf 'Configuring ramfs on /mnt/upper\n'
+    mount none -t tmpfs /mnt/upper
+    mkdir /mnt/upper/upper /mnt/upper/work
+}
+
+fake_pxe() {
+    printf 'Mounting fake pxe drive on /mnt/lower\n'
+    mount /dev/vdb -t cramfs /mnt/lower -o ro
+}
+
+fallback() {
+    printf 'No suitable rootfs overlay found, falling back to ramdisk\n'
+    fake_pxe
+    setup_ramfs
+    overlay
+    forkit
+}
+
+# vda is static boot
+# vdb is static root
+# if vdc exists, it might be an existing system, let's mount it and look
+# We can't autodetect the filesystem type, so we have to guess.  R/W disks are ext formatted, so start with that
+
+[ -e /dev/vdc ] || fallback
+
+if mount -o ro -t ext4 /dev/vdc /mnt/scratch 2>/dev/null; then
+    fs=ext4
+elif mount -o ro -t cramfs /dev/vdc /mnt/scratch 2>/dev/null; then
+    fs=cramfs
+elif mount -o ro -t squashfs /dev/vdc /mnt/scratch 2>/dev/null; then
+    fs=squashfs
+elif mount -t auto /dev/vdc /mnt/scratch 2>/dev/null; then
+    fs=auto
+else
+    fallback
+fi
+
+if [ "$fs" = "ext4" ] && [ -d /mnt/scratch/upper ] && [ -d /mnt/scratch/work ]; then
+    fake_pxe
+    umount /mnt/scratch
+    mount -t ext4 /dev/vdc /mnt/upper
+    overlay
+    forkit
+fi
+
+for init in /sbin/init /bin/init /init /etc/init /bin/bash /bin/sh; do
+    if [ -f "/mnt/scratch$init" ]; then
+        printf 'Found old-style drive, chainloading\n'
+        umount /mnt/scratch
+        if [ "$fs" = "cramfs" ] || [ "$fs" = "squashfs" ]; then
+            mount /dev/vdc -t "$fs" -o ro /newroot
+        else
+            mount /dev/vdc -t "$fs" /newroot
+        fi
+        forkit "$init"
+    fi
+done
+
+printf '/dev/vdc is a mountable drive, but has no suitable init program\n'
+printf 'You can configure it for use as an overlay, by creating a /upper and /work empty directory in it\n'
+umount /mnt/scratch
+fallback

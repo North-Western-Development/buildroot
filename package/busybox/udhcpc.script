@@ -104,11 +104,11 @@ case "$ACTION" in
 		fi
 
 		[ -n "$search_list" ] &&
-			echo "search $search_list # $interface" >> $RESOLV_CONF
+			echo "search $search_list" >> $RESOLV_CONF
 
 		for i in $dns ; do
 			echo adding dns $i
-			echo "nameserver $i # $interface" >> $RESOLV_CONF
+			echo "nameserver $i" >> $RESOLV_CONF
 		done
 		;;
 esac

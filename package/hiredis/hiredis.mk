@@ -33,6 +33,7 @@ endif
 # We may be a ccache dependency, so we can't use ccache; reset the
 # options set by the cmake infra.
 HOST_HIREDIS_CONF_OPTS += \
+	-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 	-UCMAKE_C_COMPILER_LAUNCHER \
 	-UCMAKE_CXX_COMPILER_LAUNCHER
 

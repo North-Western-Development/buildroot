@@ -1,0 +1,56 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # See https://github.com/actions/virtual-environments/issues/2577#issuecomment-845126269
+      - name: Blocked mirror workaround
+        run: echo "1.1.1.1 invisible-mirror.net" | sudo tee -a /etc/hosts
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Download caches
+        run: ./dlcache.sh
+
+      - name: Build with Gradle
+        run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' build
+
+      - name: Package Sysroot
+        run: ./sedna-sysroot/build.sh
+
+      - name: Prepare caches
+        run: |
+          mv dl ~
+          tar -C ~ --zstd -cf cache.tar.zst .buildroot-ccache .gradle/caches .gradle/wrapper dl
+          mv ~/dl .
+
+      - name: Add Artifacts to Github Release
+        uses: alexellis/upload-assets@0.4.1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          asset_paths: '["./build/libs/*.jar", "./sedna-sysroot/sysroot.tar.xz", "./cache.tar.zst"]'
+
+      - name: Publish to Github Packages
+        run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' publish
+        env:
+          GITHUB_MAVEN_URL: 'https://maven.pkg.github.com/${{ github.repository }}'
+          GITHUB_TOKEN: ${{ github.token }}
