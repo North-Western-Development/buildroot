@@ -50,9 +50,7 @@ endef
 
 define TINYCC_INSTALL_TARGET_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) DESTDIR="$(TARGET_DIR)" -C $(@D) install $(TINYCC_COMMON_FLAGS)
-	cp "$(STAGING_DIR)/lib/crt1.o" "$(TARGET_DIR)/usr/lib/crt1.o"
-	cp "$(STAGING_DIR)/lib/crti.o" "$(TARGET_DIR)/usr/lib/crti.o"
-	cp "$(STAGING_DIR)/lib/crtn.o" "$(TARGET_DIR)/usr/lib/crtn.o"
+	cp "$(STAGING_DIR)/lib/*.o" "$(TARGET_DIR)/usr/lib"
 	rm "$(TARGET_DIR)/usr/lib/tcc/libtcc1.a"
 endef
 
