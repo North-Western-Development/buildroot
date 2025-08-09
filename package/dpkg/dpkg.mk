@@ -22,7 +22,7 @@ DPKG_CONF_OPTS = \
 	--disable-start-stop-daemon \
 	--disable-shared \
 	--with-polkitactionsdir=/removeme \
-	--with-deb-compressor=zstd \
+	--with-deb-compressor=gzip \
 	PERL="$(HOST_DIR)/bin/perl"
 
 define DPKG_REMOVE_EXTRAS
