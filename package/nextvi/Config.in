@@ -1,5 +1,4 @@
 config BR2_PACKAGE_NEXTVI
 	bool "nextvi"
-	select BR2_PACKAGE_HAS_NEXTVI
 	help
 	  Next version of neatvi (a small vi/ex editor) for editing bidirectional UTF-8 text
