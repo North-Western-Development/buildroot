@@ -1,0 +1,4 @@
+config BR2_PACKAGE_HOST_TRIEHASH
+	bool "host triehash"
+	help
+	  Generator for order-preserving minimal perfect hash functions in C
