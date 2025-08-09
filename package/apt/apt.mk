@@ -9,7 +9,7 @@ APT_SITE = https://salsa.debian.org/apt-team/apt/-/archive/$(APT_VERSION)
 APT_SOURCE = apt-$(APT_VERSION).tar.bz2
 APT_LICENSE = GPL-2.0
 APT_LICENSE_FILES = COPYING
-APT_DEPENDENCIES = openssl berkeleydb zlib xz bzip2 lz4 xxhash
+APT_DEPENDENCIES = openssl berkeleydb zlib xz bzip2 lz4 xxhash triehash
 
 APT_CONF_OPTS = -DWITH_DOC=OFF -DWITH_TESTS=OFF
 
