@@ -1,0 +1,6 @@
+config BR2_PACKAGE_DPKG
+	bool "dpkg"
+	select BR2_PACKAGE_LIBMD
+	select BR2_PACKAGE_TAR
+	help
+	  The Debian Package Manager
