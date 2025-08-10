@@ -7,7 +7,7 @@
 DPKG_VERSION = 1.22.21
 DPKG_SITE = https://salsa.debian.org/dpkg-team/dpkg/-/archive/$(DPKG_VERSION)
 DPKG_SOURCE = dpkg-$(DPKG_VERSION).tar.bz2
-DPKG_DEPENDENCIES = host-perl libmd $(if $(BR2_PACKAGE_ZLIB),zlib) $(if $(BR2_PACKAGE_BZIP2),bzip2) $(if $(BR2_PACKAGE_XZ),xz) $(if $(BR2_PACKAGE_ZSTD),zstd)
+DPKG_DEPENDENCIES = host-perl host-gettext libmd $(if $(BR2_PACKAGE_ZLIB),zlib) $(if $(BR2_PACKAGE_BZIP2),bzip2) $(if $(BR2_PACKAGE_XZ),xz) $(if $(BR2_PACKAGE_ZSTD),zstd)
 DPKG_LICENSE = GPL-2.0
 DPKG_LICENSE_FILES = COPYING
 
