@@ -1,0 +1,4 @@
+config BR2_PACKAGE_HOST_DPKG
+	bool "dpkg"
+	help
+	  The Debian Package Manager
