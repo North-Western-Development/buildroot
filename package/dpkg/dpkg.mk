@@ -8,7 +8,6 @@ DPKG_VERSION = 1.22.21
 DPKG_SITE = https://salsa.debian.org/dpkg-team/dpkg/-/archive/$(DPKG_VERSION)
 DPKG_SOURCE = dpkg-$(DPKG_VERSION).tar.bz2
 DPKG_DEPENDENCIES = host-perl host-gettext libmd $(if $(BR2_PACKAGE_ZLIB),zlib) $(if $(BR2_PACKAGE_BZIP2),bzip2) $(if $(BR2_PACKAGE_XZ),xz) $(if $(BR2_PACKAGE_ZSTD),zstd)
-HOST_DPKG_DEPENDENCIES = host-perl host-gettext
 DPKG_LICENSE = GPL-2.0
 DPKG_LICENSE_FILES = COPYING
 
@@ -17,7 +16,6 @@ define DPKG_AUTOCONF
 	cd $(@D); $(AUTORECONF) -f
 endef
 DPKG_PRE_CONFIGURE_HOOKS += DPKG_AUTOCONF
-HOST_DPKG_PRE_CONFIGURE_HOOKS += DPKG_AUTOCONF
 
 DPKG_CONF_OPTS = \
 	--disable-dselect \
@@ -25,14 +23,6 @@ DPKG_CONF_OPTS = \
 	--disable-shared \
 	--with-polkitactionsdir=/removeme \
 	--with-perllibdir=/removeme \
-	--with-deb-compressor=gzip \
-	PERL="$(HOST_DIR)/bin/perl"
-
-HOST_DPKG_CONF_OPTS = \
-	--disable-dselect \
-	--disable-start-stop-daemon \
-	--disable-shared \
-	--with-perllibdir="$(HOST_DIR)/lib/perl" \
 	--with-deb-compressor=gzip \
 	PERL="$(HOST_DIR)/bin/perl"
 
@@ -45,4 +35,3 @@ endef
 DPKG_POST_INSTALL_TARGET_HOOKS += DPKG_REMOVE_EXTRAS
 
 $(eval $(autotools-package))
-$(eval $(host-autotools-package))
