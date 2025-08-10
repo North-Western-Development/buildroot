@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-TINYCC_VERSION = f10ab130ecbefc99177f5569c69ebe7f375a3d44
+TINYCC_VERSION = fa9795406d4f6579d95e1333bde27cf437023fe4
 TINYCC_SITE = https://repo.or.cz/tinycc.git/snapshot
 TINYCC_SOURCE = $(TINYCC_VERSION).tar.gz
 TINYCC_LICENSE = LGPL-2.1
