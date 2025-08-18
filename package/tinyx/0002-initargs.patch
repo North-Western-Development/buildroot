@@ -1,0 +1,104 @@
+diff --git a/Xext/bigreq.c b/Xext/bigreq.c
+index 8059641..91b70f0 100644
+--- a/Xext/bigreq.c
++++ b/Xext/bigreq.c
+@@ -50,7 +50,7 @@ static void BigReqResetProc(ExtensionEntry *    /* extEntry */
+ static DISPATCH_PROC(ProcBigReqDispatch);
+ 
+ void
+-BigReqExtensionInit(INITARGS)
++BigReqExtensionInit(void)
+ {
+ #if 0
+     ExtensionEntry *extEntry;
+diff --git a/Xext/dpms.c b/Xext/dpms.c
+index b75f482..2705eb5 100644
+--- a/Xext/dpms.c
++++ b/Xext/dpms.c
+@@ -91,7 +91,7 @@ static DISPATCH_PROC(SProcDPMSCapable);
+ static void DPMSResetProc(ExtensionEntry * extEntry);
+ 
+ void
+-DPMSExtensionInit(INITARGS)
++DPMSExtensionInit(void)
+ {
+ #if 0
+     ExtensionEntry *extEntry;
+diff --git a/Xext/saver.c b/Xext/saver.c
+index 0ba9928..399fb01 100644
+--- a/Xext/saver.c
++++ b/Xext/saver.c
+@@ -239,7 +239,7 @@ static int ScreenPrivateIndex;
+  ****************/
+ 
+ void
+-ScreenSaverExtensionInit(INITARGS)
++ScreenSaverExtensionInit(void)
+ {
+     ExtensionEntry *extEntry;
+ 
+diff --git a/Xext/shm.c b/Xext/shm.c
+index 957fcf3..4e7b2c4 100644
+--- a/Xext/shm.c
++++ b/Xext/shm.c
+@@ -208,7 +208,7 @@ CheckForShmSyscall()
+ #endif
+ 
+ void
+-ShmExtensionInit(INITARGS)
++ShmExtensionInit(void)
+ {
+     ExtensionEntry *extEntry;
+ 
+diff --git a/Xext/sync.c b/Xext/sync.c
+index 460cc5e..f8b6b6e 100644
+--- a/Xext/sync.c
++++ b/Xext/sync.c
+@@ -2296,7 +2296,7 @@ ExtensionEntry *extEntry;
+  * ** Initialise the extension.
+  */
+ void
+-SyncExtensionInit(INITARGS)
++SyncExtensionInit(void)
+ {
+     ExtensionEntry *extEntry;
+ 
+diff --git a/Xext/xcmisc.c b/Xext/xcmisc.c
+index d8bfc81..2f11ab5 100644
+--- a/Xext/xcmisc.c
++++ b/Xext/xcmisc.c
+@@ -64,7 +64,7 @@ static DISPATCH_PROC(SProcXCMiscGetXIDList);
+ static DISPATCH_PROC(SProcXCMiscGetXIDRange);
+ 
+ void
+-XCMiscExtensionInit(INITARGS)
++XCMiscExtensionInit(void)
+ {
+ #if 0
+     ExtensionEntry *extEntry;
+diff --git a/Xext/xres.c b/Xext/xres.c
+index 39ba82e..12c12a4 100644
+--- a/Xext/xres.c
++++ b/Xext/xres.c
+@@ -373,7 +373,7 @@ SProcResDispatch(ClientPtr client)
+ }
+ 
+ void
+-ResExtensionInit(INITARGS)
++ResExtensionInit(void)
+ {
+     (void) AddExtension(XRES_NAME, 0, 0,
+                         ProcResDispatch, SProcResDispatch,
+diff --git a/Xext/xtest.c b/Xext/xtest.c
+index e0f2bdc..1856560 100644
+--- a/Xext/xtest.c
++++ b/Xext/xtest.c
+@@ -80,7 +80,7 @@ static DISPATCH_PROC(SProcXTestGetVersion);
+ static DISPATCH_PROC(SProcXTestGrabControl);
+ 
+ void
+-XTestExtensionInit(INITARGS)
++XTestExtensionInit(void)
+ {
+ #if 0
+     ExtensionEntry *extEntry;

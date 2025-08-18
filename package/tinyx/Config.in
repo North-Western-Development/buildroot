@@ -1,0 +1,6 @@
+config BR2_PACKAGE_TINYX
+	bool "tinyx"
+	select BR2_PACKAGE_HAS_TINYX
+	help
+	  Smallest X11 server binary
+
