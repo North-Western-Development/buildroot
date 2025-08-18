@@ -38,12 +38,12 @@ clean.dependsOn cleanBuildroot
 task compileBuildroot(type: Exec) {
     if (Os.isFamily(Os.FAMILY_UNIX)) {
         commandLine("make")
-        commandLine("sedna-bootfs/build.sh")
+        commandLine("minux-bootfs/build.sh")
     } else {
-        logger.log(LogLevel.WARN, "Can only make buildroot on Linux. Expecting output files to have been manually placed in [output/images/] and [sedna-bootfs/].")
+        logger.log(LogLevel.WARN, "Can only make buildroot on Linux. Expecting output files to have been manually placed in [output/images/] and [minux-bootfs/].")
         enabled = false
     }
-    outputs.files "output/images/fw_jump.bin", "output/images/Image", "output/images/rootfs.cramfs", "sedna-bootfs/bootfs.squashfs"
+    outputs.files "output/images/fw_jump.bin", "output/images/Image", "output/images/rootfs.cramfs", "minux-bootfs/bootfs.squashfs"
     outputs.upToDateWhen { false }
 }
 

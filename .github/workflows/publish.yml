@@ -34,7 +34,7 @@ jobs:
         run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' build
 
       - name: Package Sysroot
-        run: ./sedna-sysroot/build.sh
+        run: ./minux-sysroot/build.sh
 
       - name: Prepare caches
         run: |
@@ -47,7 +47,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./build/libs/*.jar", "./sedna-sysroot/sysroot.tar.xz", "./cache.tar.zst"]'
+          asset_paths: '["./build/libs/*.jar", "./minux-sysroot/sysroot.tar.xz", "./cache.tar.zst"]'
 
       - name: Publish to Github Packages
         run: ./gradlew -Psemver='${{ github.event.release.tag_name }}' publish
