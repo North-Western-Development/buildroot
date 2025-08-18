@@ -8,6 +8,7 @@ config BR2_PACKAGE_APT
 	select BR2_PACKAGE_LZ4
 	select BR2_PACKAGE_XXHASH
 	select BR2_PACKAGE_DPKG
+	select BR2_PACKAGE_GNUPG
 	select BR2_PACKAGE_HOST_TRIEHASH
 	help
 	  The APT package management tool
