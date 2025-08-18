@@ -1,0 +1,4 @@
+### WARNING ###
+You are running in ramdisk mode, changes will disappear after a reboot.
+To fix this, insert a hard drive, reboot, and run 'setup-disk.sh /dev/vdc'
+

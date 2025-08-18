@@ -32,6 +32,7 @@ fallback() {
     fake_pxe
     setup_ramfs
     overlay
+    cp /ramdisk-warn /newroot/etc/issue
     forkit
 }
 

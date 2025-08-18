@@ -18,8 +18,9 @@ make -j"$(nproc)"
 mkdir -p bootfs/bin bootfs/proc bootfs/dev/pts bootfs/sys bootfs/mnt/scratch bootfs/mnt/builtin bootfs/mnt/upper bootfs/mnt/lower bootfs/sbin bootfs/newroot
 
 cp busyboxsrc/busybox bootfs/bin
-for applet in sh mkdir mount umount chroot; do
+for applet in sh mkdir mount umount chroot cp; do
     ln -s busybox "bootfs/bin/$applet"
 done
 cp init bootfs/sbin
+cp ramdisk-warn bootfs
 mksquashfs bootfs bootfs.squashfs -all-root -comp zstd
