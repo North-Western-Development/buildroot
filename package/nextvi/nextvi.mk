@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-NEXTVI_VERSION = 55b67a44fe09dbfd2af6a3e46f54490225873ccb
+NEXTVI_VERSION = 8b24eb0b74f216e2796cf7bd347a4cd671a89745
 NEXTVI_SITE = https://github.com/Un1q32/nextvi/archive
 NEXTVI_SOURCE = $(NEXTVI_VERSION).tar.gz
 NEXTVI_LICENSE = ISC
