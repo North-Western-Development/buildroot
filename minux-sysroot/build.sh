@@ -6,6 +6,7 @@ mkdir -p sysroot/usr
 cp -a ../output/target/usr/include ../output/target/usr/lib sysroot/usr
 cp -a ../output/target/lib sysroot
 cp -a ../output/staging/usr/lib/pkgconfig ../output/staging/usr/lib/cmake sysroot/usr/lib
+cp -a ../output/host/riscv64-buildroot-linux-musl/include/c++ sysroot/usr/include
 cp ../output/host/lib/gcc/riscv64-buildroot-linux-musl/*/crtbegin*.o \
     ../output/host/lib/gcc/riscv64-buildroot-linux-musl/*/crtend*.o \
     ../output/host/lib/gcc/riscv64-buildroot-linux-musl/*/libgcc.a sysroot/lib
