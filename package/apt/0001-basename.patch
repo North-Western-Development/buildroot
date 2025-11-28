@@ -1,0 +1,19 @@
+--- a/cmdline/apt-internal-solver.cc
++++ b/cmdline/apt-internal-solver.cc
+@@ -36,6 +36,7 @@
+ #include <sstream>
+ #include <string>
+ #include <unistd.h>
++#include <libgen.h>
+ 
+ #include <apti18n.h>
+ 									/*}}}*/
+@@ -119,7 +120,7 @@
+ 		_config->Set("Debug::EDSP::WriteSolution", true);
+ 
+ 	_config->Set("APT::System", "Debian APT solver interface");
+-	if (strcmp(basename(argv[0]), "solver3") == 0)
++	if (strcmp(basename((char *)argv[0]), "solver3") == 0)
+ 	   _config->Set("APT::Solver", "3.0");
+ 	else if (_config->Find("APT::Solver") != "3.0")
+ 	   _config->Set("APT::Solver", "internal");
