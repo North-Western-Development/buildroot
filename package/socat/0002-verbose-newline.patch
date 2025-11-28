@@ -1,0 +1,30 @@
+From 738950f5019005854e41e415a0ec634066c57b59 Mon Sep 17 00:00:00 2001
+From: Daniel Houck <Software@DRHouck.me>
+Date: Sun, 3 May 2026 03:21:32 -0400
+Subject: [PATCH] Add newline with -v, if not present
+
+This makes the output much easier to read if it isn't already line
+buffered
+
+Upstream: [Submitted via private email]
+Signed-off-by: Daniel Houck <Software@DRHouck.me>
+---
+ socat.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/socat.c b/socat.c
+index 2a5c114..9dd44ae 100644
+--- a/socat.c
++++ b/socat.c
+@@ -1578,6 +1578,8 @@ int xiotransfer(xiofile_t *inpipe, xiofile_t *outpipe,
+ 		  }
+ 		  ++i;
+ 	       }
++	       if (bytes > 0 && buff[bytes-1] != '\n')
++		  fputs("\\\n", stderr);
+ 	    } else if (socat_opts.verbhex) {
+ 	       int i;
+ 	       /* print prefix */
+-- 
+2.54.0
+
