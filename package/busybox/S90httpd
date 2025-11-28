@@ -3,7 +3,7 @@
 DAEMON="httpd"
 PIDFILE="/var/run/$DAEMON.pid"
 
-HTTPD_ARGS="-h /var/www/data"
+HTTPD_ARGS="-h /var/www/html"
 
 # shellcheck source=/dev/null
 [ -r "/etc/default/$DAEMON" ] && . "/etc/default/$DAEMON"

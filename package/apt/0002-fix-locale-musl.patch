@@ -1,0 +1,10 @@
+--- a/CMake/apti18n.h.in
++++ b/CMake/apti18n.h.in
+@@ -22,7 +22,6 @@
+ # define N_(x) x
+ #else
+ // apt will not use any gettext
+-extern "C" inline char* setlocale(int, const char*) throw() { return nullptr; }
+ extern "C" inline char* textdomain(const char*) throw() { return nullptr; }
+ extern "C" inline char* bindtextdomain(const char*, const char*) throw() { return nullptr; }
+ extern "C" inline char* dgettext(const char*, const char* msg) throw() { return const_cast<char*>(msg); }

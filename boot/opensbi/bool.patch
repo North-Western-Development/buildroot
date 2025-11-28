@@ -1,0 +1,50 @@
+--- a/include/sbi/sbi_types.h
++++ b/include/sbi/sbi_types.h
+@@ -44,7 +44,11 @@
+ #error "Unexpected __riscv_xlen"
+ #endif
+ 
+-typedef int			bool;
++#if __STDC_VERSION__ < 202000L
++typedef _Bool			bool;
++#define true			1
++#define false			0
++#endif
+ typedef unsigned long		ulong;
+ typedef unsigned long		uintptr_t;
+ typedef unsigned long		size_t;
+@@ -61,8 +65,6 @@
+ typedef uint64_t		le64_t;
+ typedef uint64_t		be64_t;
+ 
+-#define true			1
+-#define false			0
+ 
+ #define NULL			((void *)0)
+ 
+--- a/platform/generic/andes/andes_sbi.c
++++ b/platform/generic/andes/andes_sbi.c
+@@ -29,7 +29,7 @@
+ 
+ static bool andes45_apply_iocp_sw_workaround(void)
+ {
+-	return andes45_cache_controllable() & andes45_iocp_disabled();
++	return andes45_cache_controllable() && andes45_iocp_disabled();
+ }
+ 
+ int andes_sbi_vendor_ext_provider(long funcid,
+--- a/include/sbi_utils/serial/semihosting.h
++++ b/include/sbi_utils/serial/semihosting.h
+@@ -38,10 +38,10 @@
+ 
+ #ifdef CONFIG_SERIAL_SEMIHOSTING
+ int semihosting_init(void);
+-int semihosting_enabled(void);
++bool semihosting_enabled(void);
+ #else
+ static inline int semihosting_init(void) { return SBI_ENODEV; }
+-static inline int semihosting_enabled(void) { return 0; }
++static inline bool semihosting_enabled(void) { return 0; }
+ #endif
+ 
+ #endif
