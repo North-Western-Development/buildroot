@@ -264,7 +264,7 @@ define BUSYBOX_SET_HTTPD
 endef
 define BUSYBOX_INSTALL_HTTPD_SCRIPT
 	if grep -q CONFIG_HTTPD=y $(@D)/.config; then \
-		mkdir -p $(TARGET_DIR)/var/www/data ;\
+		mkdir -p $(TARGET_DIR)/var/www/html ;\
 		$(INSTALL) -m 0755 -D package/busybox/S90httpd \
 			$(TARGET_DIR)/etc/init.d/S90httpd ; \
 	fi
