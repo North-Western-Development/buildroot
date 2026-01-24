@@ -12,6 +12,7 @@
 *.rej
 *~
 *.pyc
+/br.log
 
 # eclipse
 bin/
