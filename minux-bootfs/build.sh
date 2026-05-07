@@ -23,4 +23,4 @@ for applet in sh mkdir mount umount chroot cp; do
 done
 cp init bootfs/sbin
 cp ramdisk-warn bootfs
-mksquashfs bootfs bootfs.squashfs -all-root -comp zstd
+../output/host/bin/mksquashfs bootfs bootfs.squashfs -all-root -comp zstd
