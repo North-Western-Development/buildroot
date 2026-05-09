@@ -1,0 +1,61 @@
+From 09a33ee93fd20bfbb92c3338f4a4849f16348e09 Mon Sep 17 00:00:00 2001
+From: Daniel Houck <Software@DRHouck.me>
+Date: Wed, 18 Feb 2026 00:12:22 -0500
+Subject: [PATCH] unix-ffi/json: Fix json.loads() of a bytes object.
+
+The conversion from bytes to string previosuly only if some other
+argument was also given to `loads`.  This makes even a basic call with
+no other arguments work.
+
+Signed-off-by: Daniel Houck <Software@DRHouck.me>
+Upstream: https://github.com/micropython/micropython-lib/commit/09a33ee93fd20bfbb92c3338f4a4849f16348e09
+---
+ unix-ffi/json/json/__init__.py | 4 ++--
+ unix-ffi/json/manifest.py      | 2 +-
+ unix-ffi/json/test_json.py     | 6 ++++++
+ 3 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/unix-ffi/json/json/__init__.py b/unix-ffi/json/json/__init__.py
+index 954618f33..5773f71fc 100644
+--- a/lib/micropython-lib/unix-ffi/json/json/__init__.py
++++ b/lib/micropython-lib/unix-ffi/json/json/__init__.py
+@@ -391,6 +391,8 @@ def loads(
+     The ``encoding`` argument is ignored and deprecated.
+ 
+     """
++    if isinstance(s, (bytes, bytearray)):
++        s = s.decode('utf-8')
+     if (
+         cls is None
+         and object_hook is None
+@@ -413,6 +415,4 @@ def loads(
+         kw["parse_int"] = parse_int
+     if parse_constant is not None:
+         kw["parse_constant"] = parse_constant
+-    if isinstance(s, (bytes, bytearray)):
+-        s = s.decode('utf-8')
+     return cls(**kw).decode(s)
+diff --git a/unix-ffi/json/manifest.py b/unix-ffi/json/manifest.py
+index 9267719f1..34b1fd262 100644
+--- a/lib/micropython-lib/unix-ffi/json/manifest.py
++++ b/lib/micropython-lib/unix-ffi/json/manifest.py
+@@ -1,4 +1,4 @@
+-metadata(version="0.2.0")
++metadata(version="0.2.1")
+ 
+ require("re")
+ package("json")
+diff --git a/unix-ffi/json/test_json.py b/unix-ffi/json/test_json.py
+index 7d7ba2104..163f558c8 100644
+--- a/lib/micropython-lib/unix-ffi/json/test_json.py
++++ b/lib/micropython-lib/unix-ffi/json/test_json.py
+@@ -11,3 +11,9 @@
+ 
+ # Doesn't work because JSON doesn't have tuples
+ # assert inp == outp
++
++b = b'["foo", {"bar": ["baz", null, 1, 2]}]'
++outp2 = json.loads(b)
++
++assert b.decode('utf-8') == s
++assert outp == outp2
