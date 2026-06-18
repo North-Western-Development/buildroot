@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-TINYCC_VERSION = fc424c9f7b886f5ef9e6a9b5f34b3f5b04233ce3
+TINYCC_VERSION = 4597a9621e70a337b241d424f4ab4729cb75b426
 TINYCC_SITE = https://github.com/TinyCC/tinycc/archive
 TINYCC_SOURCE = $(TINYCC_VERSION).tar.gz
 TINYCC_LICENSE = LGPL-2.1
