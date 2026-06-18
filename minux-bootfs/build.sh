@@ -4,7 +4,7 @@ cd "$(realpath "${0%/*}")"
 
 export PATH="$PWD/../output/host/bin:$PATH"
 
-busyboxver='1.37.0'
+busyboxver='1.38.0'
 rm -rf busyboxsrc bootfs bootfs.squashfs
 cp -a "../output/build/busybox-$busyboxver" busyboxsrc
 cp busybox.config busyboxsrc/.config
